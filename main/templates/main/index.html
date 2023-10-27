@@ -1,0 +1,399 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+	
+	<div class="section">
+
+		<div class="container">
+
+			<div class="row">
+
+				
+				{% for x in test %}
+					
+				
+					{% if x.id > 3 and x.id < 6 %}
+					
+				
+					
+					
+						<div class="col-md-6">
+							<div class="post post-thumb">
+								<a class="post-img" href="{% url 'blog-post' x.id %}"><img style="height: 350px;width:550px; max-width:100%;" src="{{x.img.url}}" alt
+										><noscript><img src="{% static 'img/post-1.jpg' %}"
+											alt></noscript></a>
+								<div class="post-body">
+									<div class="post-meta">
+										<a class="post-category cat-2" href="{% url 'category' x.id %}">{{ x.category }}</a>
+										<span class="post-date">March 27, 2018</span>
+									</div>
+									<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.metn|truncatechars:20}}</a></h3>
+								</div>
+							</div>
+						</div>
+
+						
+
+					{% endif %}
+
+				{% endfor %}
+				
+
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title">
+						<h2>Recent Posts</h2>
+					</div>
+				</div>
+
+{% for x in test %}
+	
+
+{% if forloop.counter < 7 %}
+	
+
+	
+	
+				<div class="col-md-4">
+					<div class="post ">
+						<a class="post-img" href="{% url 'blog-post' x.id %}"><img style="height:225px ;width:375px;" src="{{x.img.url}}" alt
+								>
+						<div class="post-body">
+							<div class="post-meta">
+								<a class="post-category cat-2" href="{% url 'category' x.id %}">{{x.category}}</a>
+								<span class="post-date">March 27, 2018</span>
+							</div>
+							<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.metn|truncatewords:3}}</a></h3>
+						</div>
+					</div>
+				</div>
+
+				{% endif %}
+
+				{% endfor %}
+				
+
+				<div class="clearfix visible-md visible-lg"></div>
+
+			
+
+
+
+			
+
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+
+						
+						{% for x in  test %}
+							
+						
+						{% if forloop.counter < 2  %}
+							
+						
+							
+							
+						<div class="col-md-12">
+							<div class="post post-thumb">
+								<a class="post-img" href="{% url 'blog-post' x.id %}"><img  src="{{x.img.url}}" alt
+										><noscript><img src="{% static 'img/post-1.jpg' %}"
+											alt></noscript></a>
+								<div class="post-body">
+									<div class="post-meta">
+										<a class="post-category cat-2" href="{% url 'category' x.id %}">{{x.category}}</a>
+										<span class="post-date">March 27, 2018</span>
+									</div>
+									<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.metn}}</a></h3>
+								</div>
+							</div>
+						</div>
+						{% endif %}
+
+						{% endfor %}
+
+						
+						{% for x in test  %}
+
+						{% if forloop.counter < 7 %}
+
+                <!-- Do your something here -->
+
+          
+							
+							
+						<div class="col-md-6">
+							<div class="post ">
+								<a class="post-img" href="{% url 'blog-post' x.id %}"><img style="height:225px ;width:375px;" src="{{x.img.url}}" alt
+										><noscript><img src="{% static 'img/post-1.jpg' %}"
+											alt></noscript></a>
+								<div class="post-body">
+									<div class="post-meta">
+										<a class="post-category cat-2" href="{% url 'category' x.id %}">{{x.category}}</a>
+										<span class="post-date">March 27, 2018</span>
+									</div>
+									<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.metn|truncatechars:10}}</a></h3>
+								</div>
+							</div>
+						</div>
+						{% endif %}
+
+						
+						{% endfor %}
+
+						<div class="clearfix visible-md visible-lg"></div>
+
+					
+
+						<div class="clearfix visible-md visible-lg"></div>
+
+						
+
+					</div>
+				</div>
+				<div class="col-md-4">
+
+					<div class="aside-widget" style=" padding-left:35px;">
+						<div class="section-title">
+							<h2>Most Read</h2>
+						</div>
+						
+						{% for x in test %}
+							
+							
+							{% if forloop.counter < 5 %}
+									
+							
+								<div class="post post-widget">
+									<a class="post-img" href="{% url 'blog-post' x.id %}"><img style="height: 145px;width:180px;" src="{{x.img.url}}" alt
+											></a>
+
+											    
+
+											<div class="post-meta">
+												<a class="post-category cat-2" href="{% url 'category' x.id %}">{{x.category}}</a>
+												<span class="post-date">March 27, 2018</span>
+											</div>
+									
+									<div class="post-body">
+										<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.basliq}}</a></h3>
+									</div>
+								</div>
+
+							{% endif%} 
+
+
+						{% endfor %}
+					
+					</div>
+
+
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2>Featured Posts</h2>
+						</div>
+
+						
+						{% for x in test %}
+							
+							
+							{% if x.id < 3 %}
+								
+							
+								
+							
+						<div class="post post-thumb">
+							<a class="post-img" href="{% url 'blog-post' x.id %}"><img style="height:225px ;width:375px;" src="{{x.img.url}}" alt
+									><noscript><img src="{% static 'img/post-2.jpg' %}"
+										alt></noscript></a>
+							<div class="post-body">
+								<div class="post-meta">
+									<a class="post-category cat-3" href="{% url 'category' x.id %}">{{x.basliq}}</a>
+									<span class="post-date">{{x.date}}</span>
+								</div>
+								<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.metn|truncatechars:15}}</a></h3>
+							</div>
+						</div>
+
+
+						{% endif %}
+
+						{% endfor %}
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div class="section section-grey">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h2>Golang</h2>
+					</div>
+				</div>
+
+				
+
+				
+				{% for x in content %}
+					
+					
+
+					<div class="col-md-4">
+						<div class="post">
+							<a class="post-img" href="{% url 'blog-post' x.id %}"><img style="height:225px ;width:375px;" src="{{ x.img.url }}" alt
+									><noscript><img src="{{ x.img.url }}"
+										alt></noscript></a>
+							<div class="post-body">
+								<div class="post-meta">
+
+
+									
+									<a class="post-category cat-2" href="{% url 'blog-post' x.id %}">{{ x.basliq }}</a>
+									<span class="post-date">March 27, 2018</span>
+								</div>
+								<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.1|slice:"0:10"}}</a></h3>
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+			
+
+		
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div class="section">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-title">
+								<h2>Most Read</h2>
+							</div>
+						</div>
+
+						
+						{% for x in test %}
+							
+						
+						{% if x.id < 5 %}
+							
+						
+							
+					
+							
+						<div class="col-md-12">
+							<div class="post post-row">
+								<a class="post-img" href="{% url 'blog-post' x.id %}"><img src="{{x.img.url}}" alt
+										><noscript><img src="{% static 'img/post-4.jpg' %}"
+											alt></noscript></a>
+								<div class="post-body">
+									<div class="post-meta">
+										<a class="post-category cat-2" href="{% url 'category' x.id %}">{{x.category}}</a>
+										<span class="post-date">{{x.date}}</span>
+									</div>
+									<h3 class="post-title"><a href="{% url 'blog-post' x.id %}">{{x.basliq}}
+											</a></h3>
+									<p>{{x.metn|truncatechars:20}}</p>
+								</div>
+							</div>
+						</div>
+
+						{% endif %}
+
+						{% endfor %}
+
+					
+					</div>
+				</div>
+				<div class="col-md-4">
+
+					<div class="aside-widget text-center">
+						<a href="#" style="display: inline-block;margin: auto;">
+							<img class="img-responsive" src="{% static 'img/ad-1.jpg' %}" alt
+								><noscript><img class="img-responsive"
+									src="{% static 'img/ad-1.jpg' %}" alt></noscript>
+						</a>
+					</div>
+
+
+					<div class="aside-widget">
+						<div class="section-title">
+							<h2>Catagories</h2>
+						</div>
+						<div class="category-widget">
+							<ul>
+
+								
+								{% for x in result  %}
+
+									<li>
+										<a >{{x.category}} <span>{{x.dcount}}</span></a>
+									</li>
+
+								{% endfor %}
+								
+
+								
+
+
+							</ul>
+						</div>
+					</div>
+
+
+					<div class="aside-widget">
+						<div class="tags-widget">
+							<ul>
+								
+								
+								{% for category in data  %}
+
+									<li><a href="{% url 'category' category.id %}">{{category.category}}</a></li>
+									
+								{% endfor %}
+									
+					
+							
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+
+{% endblock %}
